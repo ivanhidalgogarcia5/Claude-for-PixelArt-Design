@@ -21,6 +21,7 @@ los frames tienen las mismas dimensiones.
 | MCP [aseprite-ai-mcp](https://github.com/PabloAlcoleaSesse/aseprite-ai-mcp) *(opcional)* | Claude dibuja en directo en tu Aseprite abierto |
 | `tools/` (este repo) | Build de texto → `.aseprite` + exports |
 | `CLAUDE.md` (este repo) | Le explica a Claude las convenciones del repo |
+| `/init-pixeldesign` + `tools/doctor.ps1` (este repo) | Prepara y comprueba la sesión antes de pedir sprites |
 
 ## Requisitos
 
@@ -49,11 +50,23 @@ $env:ASEPRITE = 'D:\ruta\a\aseprite.exe'
 Si PowerShell bloquea los scripts (`no se puede cargar ... la ejecución de scripts está deshabilitada`),
 permite scripts locales para tu usuario: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
 
-Comprueba que todo funciona reconstruyendo el ejemplo:
+Comprueba que todo funciona:
 
 ```powershell
-.\tools\build.ps1 -Sprite slime
+.\tools\doctor.ps1
 ```
+
+## Empezar una sesión: `/init-pixeldesign`
+
+Abre Claude Code en la carpeta del repo y escribe:
+
+```
+/init-pixeldesign
+```
+
+Claude ejecuta `tools/doctor.ps1`, instala las skills si faltan, te dice qué instalar si falta Node o
+Aseprite, comprueba si el MCP de Aseprite está conectado (opcional), carga las reglas de pixel art y
+`CLAUDE.md`, y te confirma con **"Listo: ya puedes pedirme sprites"** cuando la sesión está preparada.
 
 ## Guía de uso
 
