@@ -33,8 +33,8 @@ los frames tienen las mismas dimensiones.
 ## Instalación
 
 ```powershell
-git clone <url-de-este-repo> claude-for-pixelart-design
-cd claude-for-pixelart-design
+git clone https://github.com/ivanhidalgogarcia5/Claude-for-PixelArt-Design.git
+cd Claude-for-PixelArt-Design
 .\install.ps1          # skills
 .\install.ps1 -Mcp     # skills + MCP de Aseprite (dibujo en directo)
 ```
